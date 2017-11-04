@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import graphene_django.views
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(regex=r'^graphql/$',
+        view=graphene_django.views.GraphQLView.as_view(graphiql=True)),
 ]
